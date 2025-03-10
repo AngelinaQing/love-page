@@ -40,6 +40,7 @@
             width: 60%;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
         .love-letter {
             background: white;
@@ -84,7 +85,7 @@
             <img src="your-photo3.jpg" alt="Memory 3">
         </div>
 
-        <h3>Our Journey ❤️</h3>
+        <h3 onclick="navigateToMaze()" style="cursor: pointer;">Our Journey ❤️</h3>
         <div class="timeline">
             <div class="memory">📅 First Date – The day everything changed! 😊</div>
             <div class="memory">🌅 First Trip Together – The adventure of a lifetime! ✈️</div>
@@ -97,16 +98,19 @@
         </div>
 
         <h3>💖 Our Song 🎶</h3>
-      <audio controls autoplay loop>
-    <source src="../yung kai - blue (Lyrics).mp3" type="audio/mp3">
-</audio>
-
-
+        <audio controls autoplay loop>
+            <source src="../yung kai - blue (Lyrics).mp3" type="audio/mp3">
+        </audio>
     </div>
 
     <footer>
         Made with 💖 for Us
     </footer>
 
+    <script>
+        function navigateToMaze() {
+            window.location.href = "maze.html";
+        }
+    </script>
 </body>
 </html>
