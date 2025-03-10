@@ -41,10 +41,20 @@
             border-radius: 50%;
             box-shadow: 0px 0px 5px rgba(255, 223, 0, 0.8);
         }
+        #backButton {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="game-container" id="maze"></div>
+    <button id="backButton">Back</button>
     
     <script>
         const mazeLayout = [
@@ -54,7 +64,7 @@
             [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
             [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
             [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
             [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1],
             [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -127,6 +137,7 @@
                 if (dot) {
                     dot.classList.remove("dot");
                     showImage(dot.dataset.img);
+                    checkAllDotsEaten();
                 }
             }
             updatePlayer();
@@ -146,6 +157,19 @@
             document.body.appendChild(img);
             setTimeout(() => img.remove(), 3000);
         }
+
+        function checkAllDotsEaten() {
+            const allEaten = !document.querySelector(".dot");
+            if (allEaten) {
+                const backButton = document.getElementById("backButton");
+                backButton.style.display = "block";
+            }
+        }
+
+        const backButton = document.getElementById("backButton");
+        backButton.addEventListener("click", () => {
+            window.location.href = 'one.html';
+        });
 
         generateMaze();
     </script>
